@@ -1,5 +1,5 @@
 import java.util.*;
-public class bit_Manipulation {                             // (Indexing Start From 0,1,.......n)
+public class L_10bit_Manipulation {                             // (Indexing Start From 0,1,.......n)
 
     // Count number of 1 Bits
     public static int hammingWeight(int n) {

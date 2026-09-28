@@ -8,6 +8,11 @@ public class Constructors {
         S1.Marks[2] = 92;
         S1.getData();
 
+        // Original Array
+        System.out.println("Original Array : ");
+        for(int i = 0 ; i < 3 ; i++) {
+            System.out.println(S1.Marks[i]); 
+        }
         // Second Student 
         Student S2 = new Student(S1);
         S2.name = "Muhammad Shayan";
@@ -34,7 +39,6 @@ class Student {
 
     // Non_Parameterized Constructor 
     Student() {
-        Marks  = new int[3];
         System.out.println("I'm a Non-Parameterized Constructor...");
     }
 
@@ -46,9 +50,8 @@ class Student {
         this.password = password;
     }
 
-    // // Shallow Copy                |---> Changes Reflect
+    // // Shallow Copy                 |---> Changes Reflect
     // Student(Student S1) {
-    //     Marks  = new int[3];
     //     this.name = S1.name;
     //     this.Rno = S1.Rno;
     //     this.password = S1.password;

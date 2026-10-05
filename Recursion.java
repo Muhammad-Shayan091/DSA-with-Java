@@ -106,41 +106,94 @@ public class Recursion{
         return full_Pow;
     }
 
+    public static int Tilling(int n) {
+        if(n==1 || n==0){
+            return 1;
+        }
+
+        return Tilling(n-1)+Tilling(n-2);
+    }
+
+    public static void removeDuplicate(String str , int idx , StringBuilder newStr , boolean map[]){
+        if(idx == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        if(map[currChar - 'a'] == true){
+            removeDuplicate(str, idx+1, newStr, map);
+        }else{
+            map[currChar-'a'] = true;
+            removeDuplicate(str, idx+1, newStr.append(currChar), map);
+        }
+    }
+
+    public static int friedsPair(int n){
+        if(n==0 || n==1){
+            return n;
+        }
+
+        return friedsPair(n-1)+ (n-1)*friedsPair(n-2);
+    }
+    public static void PrintBinStr(int  size , int last_Place , String str){
+        if(size==0){
+            System.out.println(str);
+            return;
+        }
+
+        PrintBinStr(size-1, 0 , str+"0");
+        if(last_Place == 0){
+            PrintBinStr(size-1, 1, str+"1");
+        }
+    }
     public static void main(String arg[]) {
         Scanner sc = new Scanner(System.in);
-        // Print numbers in Dec Order 
-        System.out.println("Decreasing Order : ");
-        printInc(10);
-        // Print number in Inc Order
-        System.out.println("\nIncreasing Order : ");
-        printDec(10);
-        // Print number from n to n 
-        System.out.println("\nIncreasing Order : ");
-        printIncrease(51);
-        // print Factorial of number 
-        System.out.println("\nFactorial : "+Factorial(6)+" ");
-        // Print Sum Of n numbers 
-        System.out.println("Sum : "+Sum(100));
-        // Check if an Array Is Sorted or not
-        int Arr[] = {1,2,3,3,4,5};
-        if(Is_Sorted(Arr,0)) {
-            System.out.println("Array Is Sorted..!");
-        } else {
-             System.out.println("Array Is not Sorted..!");
-        }
-        // Print nth fibonacci number 
-        System.out.print("Enter numbe for fibo(n) : ");
-        int n = sc.nextInt();
-        System.out.println("fibonacci("+n+") Is : "+fibonacci(n));
-        // Print the First Occurence index Of an element in Array
-        System.out.println("Element Found at Index : " + first_Occurence(Arr, 3, 0));
-        System.out.println("Element Found at Index : " + last_Occurence(Arr, 3, Arr.length-1));
-        System.out.print("Enter Base : ");
-        int base = sc.nextInt();
-        System.out.print("Enter Power : ");
-        int pow = sc.nextInt();
-        System.out.println(base+"^"+pow+" = "+Power(base, pow));
-        System.out.println(base+"^"+pow+" = "+Opt_Power(base, pow));
-
+        // // Print numbers in Dec Order 
+        // System.out.println("Decreasing Order : ");
+        // printInc(10);
+        // // Print number in Inc Order
+        // System.out.println("\nIncreasing Order : ");
+        // printDec(10);
+        // // Print number from n to n 
+        // System.out.println("\nIncreasing Order : ");
+        // printIncrease(51);
+        // // print Factorial of number 
+        // System.out.println("\nFactorial : "+Factorial(6)+" ");
+        // // Print Sum Of n numbers 
+        // System.out.println("Sum : "+Sum(100));
+        // // Check if an Array Is Sorted or not
+        // int Arr[] = {1,2,3,3,4,5};
+        // if(Is_Sorted(Arr,0)) {
+        //     System.out.println("Array Is Sorted..!");
+        // } else {
+        //      System.out.println("Array Is not Sorted..!");
+        // }
+        // // Print nth fibonacci number 
+        // System.out.print("Enter numbe for fibo(n) : ");
+        // int n = sc.nextInt();
+        // System.out.println("fibonacci("+n+") Is : "+fibonacci(n));
+        // // Print the First Occurence index Of an element in Array
+        // System.out.println("Element Found at Index : " + first_Occurence(Arr, 3, 0));
+        // // Print Last Occurence 
+        // System.out.println("Element Found at Index : " + last_Occurence(Arr, 3, Arr.length-1));
+        // // Power Calculation
+        // System.out.print("Enter Base : ");
+        // int base = sc.nextInt();
+        // System.out.print("Enter Power : ");
+        // int pow = sc.nextInt();
+        // System.out.println(base+"^"+pow+" = "+Power(base, pow));
+        // // By Optimal Way 
+        // System.out.println(base+"^"+pow+" = "+Opt_Power(base, pow));
+        // // Tilling Problem 
+        // System.out.print("Enter Your Width : ");
+        // int Width = sc.nextInt();
+        // System.out.println("Total No Of Ways To Tile : " + Tilling(Width));
+        // // Remove Duplicate
+        // System.out.print("Enter Your String : ");
+        // String str = sc.next();
+        // removeDuplicate(str, 0, new StringBuilder("") , new boolean[26]);
+        // Friends Pairing 
+        // System.out.println("Total Pairs Can Formed : " + friedsPair(3));
+        PrintBinStr(4, 0, "");
     }
 }

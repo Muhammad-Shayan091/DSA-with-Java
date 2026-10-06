@@ -146,6 +146,29 @@ public class Recursion{
             PrintBinStr(size-1, 1, str+"1");
         }
     }
+
+    public static void linear_Search(int Arr[] , int key , int index){
+        if(index == Arr.length){
+            return ;
+        }
+
+        if(Arr[index] == key){
+            System.out.print(index +" ");
+        }
+        linear_Search(Arr, key, index+1);
+    }
+
+    static String[] nums = { "Zero" , "One" , "Two" , "Three" , "Four" , "Five" , "Sex" , "Seven" , "Eight" , "Nine" };
+
+    public static void numTostr(int n , StringBuilder str){
+        if(n==0){
+            return ;
+        }
+
+        int Digit = n%10;
+        numTostr(n/10, str);
+        str.append(nums[Digit]).append(" ");
+    }
     public static void main(String arg[]) {
         Scanner sc = new Scanner(System.in);
         // // Print numbers in Dec Order 
@@ -194,6 +217,20 @@ public class Recursion{
         // removeDuplicate(str, 0, new StringBuilder("") , new boolean[26]);
         // Friends Pairing 
         // System.out.println("Total Pairs Can Formed : " + friedsPair(3));
-        PrintBinStr(4, 0, "");
+        // PrintBinStr(4, 0, "");
+        // // Linear Search 
+        // int Arr[] = {1,2,3,2,4,2,5,2};
+        // int Key = 2;
+        // System.out.print("Indexes of Target : ");
+        // linear_Search(Arr, Key, 0);
+        // Digit-to-Strings Problem 
+        int n = 2026;
+        if(n==0){
+            System.out.println("Zero ");
+        }else{
+            StringBuilder result = new StringBuilder();
+            numTostr(n, result);
+            System.out.println(result.toString().trim());
+        }
     }
 }

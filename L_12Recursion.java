@@ -1,5 +1,5 @@
 import java.util.*;
-public class Recursion{
+public class L_12Recursion{
     public static void printInc(int n){
         if(n==1){
             System.out.print(n + " ");
@@ -169,8 +169,23 @@ public class Recursion{
         numTostr(n/10, str);
         str.append(nums[Digit]).append(" ");
     }
+
+    public static void tower_Hanoi(int n , char A , char B , char C) {
+        if(n==0){
+            return ;
+        }
+
+        tower_Hanoi(n-1, A, C, B);
+        System.out.println(A+" to "+C);
+        tower_Hanoi(n-1, B , A , C);
+    }
+
+    // -------------------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------------------
+
+
     public static void main(String arg[]) {
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         // // Print numbers in Dec Order 
         // System.out.println("Decreasing Order : ");
         // printInc(10);
@@ -215,22 +230,24 @@ public class Recursion{
         // System.out.print("Enter Your String : ");
         // String str = sc.next();
         // removeDuplicate(str, 0, new StringBuilder("") , new boolean[26]);
-        // Friends Pairing 
+        // // Friends Pairing 
         // System.out.println("Total Pairs Can Formed : " + friedsPair(3));
         // PrintBinStr(4, 0, "");
         // // Linear Search 
-        // int Arr[] = {1,2,3,2,4,2,5,2};
+        // int Arr1[] = {1,2,3,2,4,2,5,2};
         // int Key = 2;
         // System.out.print("Indexes of Target : ");
-        // linear_Search(Arr, Key, 0);
-        // Digit-to-Strings Problem 
-        int n = 2026;
-        if(n==0){
-            System.out.println("Zero ");
-        }else{
-            StringBuilder result = new StringBuilder();
-            numTostr(n, result);
-            System.out.println(result.toString().trim());
-        }
+        // linear_Search(Arr1, Key, 0);
+        // // Digit-to-Strings Problem 
+        // int N = 2026;
+        // if(N==0){
+        //     System.out.println("Zero ");
+        // }else{
+        //     StringBuilder result = new StringBuilder();
+        //     numTostr(N, result);
+        //     System.out.println(result.toString().trim());
+        // }
+
+        tower_Hanoi(3, 'a', 'b', 'c');
     }
 }
